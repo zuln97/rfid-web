@@ -1,0 +1,114 @@
+html, body {
+  background: #4158d0;
+  background: linear-gradient(45deg, #4158d0, #c850c0);
+  padding: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 90%;
+
+}
+h1 {
+	color: #fff;
+}
+
+
+h3 {
+	color: #fff;
+}
+
+a {
+  color: #00B7FF;
+}
+
+tr :hover {background-color:#F4ECF7;}
+
+#wrapper {
+	padding-left:312px;
+	position:relative;
+}
+
+#tagList {
+	margin:0 0 30px 200px; 
+	width: 600px;
+}	
+	#tagList h2 {
+		margin:0 0 20px 0px;
+		color: #fff;
+	}
+	#tagList table {
+			 border-spacing: 1;
+			  border-collapse: collapse;
+			  background: white;
+			  border-radius: 10px;
+			  overflow: hidden;
+			  width: 100%;
+			  margin: 0 auto;
+			  position: relative;
+			 
+	}
+		#tagList table th {
+			background:#000;
+			color: #fff;
+			font-weight:600;
+			padding:10px 20px;
+			text-align:center;
+			
+		}
+		#tagList table tbody {
+			padding:0; margin:0;
+			border-collapse:collapse;
+			border-spacing:0px;
+			
+		}
+			#tagList table td {
+				background:#FFF;
+				padding:5px 10px;
+				text-align:center;
+				
+			}
+
+#tagInfo {
+	width:400px;
+	height:200px;
+	position:absolute;
+	top:0; left:0;
+}	
+	#tagInfo h2 {
+		margin:0 0 20px 0;
+		color: #fff;
+	}
+	#tagInfo p {
+		  border-spacing: 1;
+		  border-collapse: collapse;
+		  background: white;
+		  border-radius: 5px;
+		  overflow: hidden;
+		  width: 100%;
+		  margin: 0 auto;
+		  padding:5px 8px;
+		  position: relative
+	}
+
+/*fieldset {
+	border:0;
+	padding:0; margin:0;
+}*/
+
+a.linkshowtag, a.linkdeletetag{
+	text-decoration: none;
+	color: #4158d0;
+}
+
+/*#footer {
+	position: absolute;
+	height: 20px;
+	margin-top: -100px;
+	clear: both;
+	background-color: #000;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+
+}*/
