@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UHF RFID LOGS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/images/database.png">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <h1>UHF RFID</h1>
+    <h3>Welcome to our log</h3>
+    <!-- Wrapper-->
+    <div id="wrapper">
+      <!-- TAG INFO-->
+      <div id="tagInfo">
+        <h2>Tag Info</h2>
+        <p><strong>Id:</strong> <span id='tagInfoId'></span><br><strong>AntennaId:</strong> <span id='tagInfoAntennaId'></span><br><strong>PC:</strong> <span id='tagInfoPc'></span><br><strong>EPC:</strong> <span id='tagInfoEpc'></span><br><strong>Date:</strong> <span id='tagInfoDate'></span></p>
+      </div>
+      <!-- /TAG INFO-->
+      <!-- TAG LIST-->
+      <div id="tagList">
+        <h2>Tag List</h2>
+        <table>
+          <thead>
+            <th>ID</th>
+            <th>EPC</th>
+            <th>DELETE?</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <!-- /TAG LIST-->
+    </div>
+    <!-- /WRAPPER-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/javascripts/global_logs.js"></script>
+  </body>
+</html>

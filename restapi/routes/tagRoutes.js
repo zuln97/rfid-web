@@ -1,20 +1,13 @@
 'use strict';
 
-module.exports = function(app) {
+const Tags = require('../controllers/tagController');
 
-    var tag = require('../controllers/tagController');
-
-    app.route('/tag')
-
-        .get(tag.tags)
-
-        .post(tag.add);
-
-    app.route('/tag/:tagId')
-
-        .get(tag.gettag)
-
-        .put(tag.update)
-        
-        .delete(tag.delete);
-};
+module.exports = (app) =>{
+    app.route('/api/tags')
+        .get(Tags.getalltags)
+        .post(Tags.sendtag);
+    app.route('/api/tags/findEPC/:EPC')
+        .get(Tags.getspecifictag);
+    app.route('/api/tags/logs')
+        .get(Tags.getlogs);
+}

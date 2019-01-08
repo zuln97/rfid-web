@@ -1,51 +1,45 @@
 'use strict';
+require('./../models/tagModel.js');
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const Tags = mongoose.model('Tags');
+const Logs = mongoose.model('Logs');
 
-var Tag = mongoose.model('Tags');
+module.exports.getalltags = (req, res)=>{
+    Tags.find({}, (err, docs)=>{
+        if(err) return res.send(err);
+        return res.json(docs);
+    })
+}
 
-exports.tags = function(req, res) {
-  Tag.find({}, function(err, tag) {
-    if (err)
-      res.send(err);
-    res.json(tag);
-  });
-};
+module.exports.getspecifictag = (req, res)=>{
+    Tags.find({"EPC": req.params.EPC.toString()}, (err, docs)=>{
+        if(err) return res.send(err);
+        return res.json(docs);
+    })
+}
 
-exports.add = function(req, res) {
-  var new_tag = new Tag(req.body);
-  new_tag.save(function(err, tag) {
-    if (err)
-      res.send(err);
-    res.json(tag);
-  });
-};
 
-exports.gettag = function(req, res) {
-  Tag.findById(mongoose.Types.ObjectId(req.query.tagId), function(err, tag) {
-    if (err)
-      res.send(err);
-    res.json(tag);
-  });
-};
+module.exports.sendtag = (req, res)=>{
+    const tag = req.body;
+    const newlog = new Logs(tag);
+    tag.Date = new Date();
+    newlog.save();
+    Tags.findOneAndUpdate({"EPC": tag.EPC}, req.body, {new: true}, function(err, docs) {
+        if (err) return res.send(err);
+        if (docs) return res.json(docs);
+        
+        var newtag = new Tags(tag);
+        newtag.save();
+        return res.json(newtag);
+    });
+    
+}
 
-exports.update = function(req, res) {
-  var id = mongoose.Types.ObjectId(req.query.tagId);
-  Tag.findOneAndUpdate({_id: id}, req.body, {new: true}, function(err, tag) {
-    if (err)
-      res.send(err);
-    res.json(tag);
-  });
-};
-
-exports.delete = function(req, res) {
-  var id = mongoose.Types.ObjectId(req.query.tagId);
-  Tag.remove({
-    _id: id
-  }, function(err, tag) {
-    if (err)
-      res.send(err);
-    res.json({ message: 'Tag deleted successfully' });
-  });
-};
+module.exports.getlogs = (req, res)=>{
+    Logs.find({}, (err, docs)=>{
+        if(err) return res.send(err);
+        return res.json(docs);
+    })
+}
 

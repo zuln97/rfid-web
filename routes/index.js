@@ -6,5 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/logs', function(req, res, next) {
+	res.render('log', { title: 'UHF RFID LOGS' });
+});
+
 
 module.exports = router;
